@@ -8,6 +8,11 @@ body {
     color: #333;
 }
 
+a {
+    color: white;
+}
+
+
 /* Заголовок */
 header {
     background-color: #0078d7;

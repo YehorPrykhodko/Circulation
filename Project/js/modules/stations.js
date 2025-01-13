@@ -58,6 +58,8 @@ export async function getStations() {
 
 // Fonction pour ajouter des stations sur la carte Leaflet
 export function addStationsToMap(stations, map) {
+  console.log(stations)
+
   stations.forEach((station) => {
     const popupContent = `
       <strong>${station.name}</strong><br>

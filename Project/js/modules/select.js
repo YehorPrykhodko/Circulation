@@ -1,4 +1,4 @@
-export function depSelectSelect(data, onSelectCallback) {
+export function depSelect(data, onSelectCallback) {
     const select = document.getElementById("dep-select");
     if (!select) return;
 

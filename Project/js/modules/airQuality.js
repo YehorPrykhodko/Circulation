@@ -39,7 +39,7 @@ export function displayAirQualityInfo(airQualityData) {
   airQualityInfoDiv.innerHTML = `
     <h3>Qualité de l'air</h3>
     <ul>
-      <li><strong>Qualité :</strong> <span style="color: ${coul_qual}">${lib_qual}</span></li>
+      <li><strong>Qualité :</strong> <span>${lib_qual}</span></li>
       <li><strong>Source :</strong> ${source}</li>
       <li><strong>Date de mise à jour :</strong> ${new Date(date_ech).toLocaleDateString()}</li>
     </ul>

@@ -13,34 +13,49 @@
 </head>
 
 <body>
-    <!-- Carte -->
-    <div id="map"
-         style="height: 400px; margin-top: 20px;"></div>
+    <header>
+        <h1>Circulation</h1>
+    </header>
 
-    <!-- Qualite de lair -->
-    <div id="air-quality-info">
-        <p>Les informations sur la qualité de l'air ...</p>
-    </div>
+    <main>
+        <!-- Carte -->
+        <section id="map-section">
+            <h2>Carte</h2>
+            <div id="map"
+                 style="height: 400px;"></div>
+        </section>
 
-    <!-- Meteo -->
-    <div id="weather-info">
-        <p>Les informations sur la météo ...</p>
-    </div>
+        <!-- Qualité de l'air -->
+        <section id="air-quality-section">
+            <h2>Qualité de l'air</h2>
+            <div id="air-quality-info">
+                <p>Les informations sur la qualité de l'air seront affichées ici.</p>
+            </div>
+        </section>
 
-    <!-- Section SARS-CoV-2 -->
-    <div id="sars-cov2-info">
-        <h2>SARS-CoV-2</h2>
-        <label for="dep-select">Sélectionnez un Departement:</label>
-        <select id="dep-select">
-            <option value="">-- Sélectionnez un Departement--</option>
-        </select>
-        <div id="sars-chart-container"
-             style="margin-top: 20px;">
-            <canvas id="sarsChart"
-                    width="400"
-                    height="200"></canvas>
-        </div>
-    </div>
+        <!-- Météo -->
+        <section id="weather-section">
+            <h2>Météo</h2>
+            <div id="weather-info">
+                <p>Les informations sur la météo seront affichées ici.</p>
+            </div>
+        </section>
+
+        <!-- SARS-CoV-2 -->
+        <section id="sars-cov2-section">
+            <h2>Données SARS-CoV-2</h2>
+            <label for="dep-select">Sélectionnez un département :</label>
+            <select id="dep-select">
+                <option value="">-- Sélectionnez un département --</option>
+            </select>
+            <div id="sars-chart-container"
+                 style="margin-top: 20px;">
+                <canvas id="sarsChart"
+                        width="400"
+                        height="200"></canvas>
+            </div>
+        </section>
+    </main>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

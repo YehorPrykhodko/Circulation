@@ -1,7 +1,7 @@
 import { getStations, addStationsToMap } from './modules/stations.js';
 import { fetchAirQualityData, displayAirQualityInfo } from './modules/airQuality.js';
 import { initMap } from './modules/map.js';
-import { getGeolocation, displayError } from './modules/geolocation.js';
+import { getGeolocation } from './modules/geolocation.js';
 import { fetchWeatherData, applyXSLTToWeather } from './modules/weather.js';
 import { fetchSarsData, parseCsvData, getDepartmentData } from './modules/sarsData.js';
 import { depSelect } from './modules/select.js';
@@ -16,7 +16,7 @@ async function displayWeatherInfo() {
 }
 
 // Fonction pour afficher la carte avec les stations et les données de qualité de l'air
-async function displayMapWithStationsAndAirQuality(latitude, longitude) {
+async function display(latitude, longitude) {
     const map = initMap(latitude, longitude);
 
     try {
@@ -49,4 +49,4 @@ async function displayMapWithStationsAndAirQuality(latitude, longitude) {
 }
 
 // Initialisation de la géolocalisation et affichage des données
-getGeolocation(displayMapWithStationsAndAirQuality, displayError);
+getGeolocation(display);

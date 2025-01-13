@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-    <title>Интеллектуальный выбор транспорта</title>
+    <title>Circulation</title>
     <link rel="stylesheet"
           href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet"
@@ -13,26 +13,26 @@
 </head>
 
 <body>
-    <!-- map -->
+    <!-- Carte -->
     <div id="map"
          style="height: 400px; margin-top: 20px;"></div>
 
-    <!-- air quality -->
+    <!-- Qualite de lair -->
     <div id="air-quality-info">
-        <p>Здесь будет отображаться информация в качестве воздуха...</p>
+        <p>Les informations sur la qualité de l'air ...</p>
     </div>
 
-    <!-- weather -->
+    <!-- Meteo -->
     <div id="weather-info">
-        <p>Здесь будет отображаться информация щ погоде...</p>
+        <p>Les informations sur la météo ...</p>
     </div>
 
-    <!-- SARS-CoV-2 Section -->
+    <!-- Section SARS-CoV-2 -->
     <div id="sars-cov2-info">
         <h2>SARS-CoV-2</h2>
-        <label for="station-select">Выберите станцию:</label>
-        <select id="station-select">
-            <option value="">-- Выберите станцию --</option>
+        <label for="dep-select">Sélectionnez un Departement:</label>
+        <select id="dep-select">
+            <option value="">-- Sélectionnez un Departement--</option>
         </select>
         <div id="sars-chart-container"
              style="margin-top: 20px;">
@@ -41,7 +41,6 @@
                     height="200"></canvas>
         </div>
     </div>
-
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

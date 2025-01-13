@@ -1,20 +1,20 @@
-export function populateStationSelect(data, onSelectCallback) {
-    const select = document.getElementById("station-select");
+export function depSelectSelect(data, onSelectCallback) {
+    const select = document.getElementById("dep-select");
     if (!select) return;
 
     select.innerHTML = ""; 
     
-    const stations = Object.keys(data[0]).filter(key => key !== "semaine");
+    const deps = Object.keys(data[0]).filter(key => key !== "semaine");
 
-    stations.forEach(station => {
+    deps.forEach(dep => {
         const option = document.createElement("option");
-        option.value = station;
-        option.textContent = station;
+        option.value = dep;
+        option.textContent = dep;
         select.appendChild(option);
     });
 
     select.addEventListener("change", () => {
-        const selectedStation = select.value;
-        onSelectCallback(selectedStation);
+        const selectedDep = select.value;
+        onSelectCallback(selectedDep);
     });
 }

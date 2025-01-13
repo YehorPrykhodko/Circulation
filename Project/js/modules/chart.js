@@ -1,27 +1,27 @@
 import Chart from "chart.js/auto";
 
-let sarsChart = null; // Глобальная переменная для хранения текущего графика
+let sarsChart = null; // Variable globale pour stocker le graphique actuel
 
 export function renderSarsChart(data) {
-    const labels = data.map(item => item.semaine); // Используем значение `semaine`
-    const values = data.map(item => item.value);   // Используем значение `value`
+    const labels = data.map(item => item.semaine); // Utilisation de la valeur `semaine`
+    const values = data.map(item => item.value);   // Utilisation de la valeur `value`
 
-    console.log("Метки для графика:", labels);
-    console.log("Значения для графика:", values);
+    console.log("Étiquettes pour le graphique :", labels);
+    console.log("Valeurs pour le graphique :", values);
 
-    // Проверяем существование контейнера для графика
+    // Vérifier l'existence du conteneur pour le graphique
     const chartContainer = document.getElementById("sars-chart-container");
     if (!chartContainer) {
-        console.error("Контейнер для графика не найден!");
+        console.error("Le conteneur pour le graphique est introuvable !");
         return;
     }
 
-    // Если график уже существует, удаляем его
+    // Si le graphique existe déjà, on le détruit
     if (sarsChart) {
         sarsChart.destroy();
     }
 
-    // Создаём или обновляем график
+    // Créer ou mettre à jour le graphique
     const ctx = document.getElementById("sarsChart").getContext("2d");
     sarsChart = new Chart(ctx, {
         type: "line",

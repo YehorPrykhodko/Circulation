@@ -1,6 +1,6 @@
 import L from 'leaflet';
 
-// Создаем кастомный красный маркер
+// Création d'un marqueur rouge personnalisé
 const redIcon = L.icon({
   iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
   iconSize: [25, 41],
@@ -12,19 +12,19 @@ const redIcon = L.icon({
 export function initMap(latitude, longitude) {
   const map = L.map('map').setView([latitude, longitude], 13);
 
-  console.log("Карта успешно инициализирована:", map); // Проверяем объект карты
+  console.log("Carte initialisée avec succès :", map); // Vérifie l'objet carte
 
-  // Добавляем слой OpenStreetMap
+  // Ajouter une couche OpenStreetMap
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors',
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">Contributeurs OpenStreetMap',
     maxZoom: 19,
   }).addTo(map);
 
-  // Добавляем маркер текущего местоположения с кастомной иконкой
+  // Ajouter un marqueur de position actuelle avec une icône personnalisée
   L.marker([latitude, longitude], { icon: redIcon })
     .addTo(map)
-    .bindPopup('Vous êtes ici.') // Сообщение в попапе
-    .openPopup(); // Открыть попап по умолчанию
+    .bindPopup('Vous êtes ici.') // Message dans la popup
+    .openPopup(); // Ouvre la popup par défaut
 
-  return map; // Возвращаем объект карты
+  return map; // Retourne l'objet carte
 }

@@ -3,11 +3,11 @@ import { fetchAirQualityData, displayAirQualityInfo } from './modules/airQuality
 import { initMap } from './modules/map.js';
 import { getGeolocation, displayError } from './modules/geolocation.js';
 import { fetchWeatherData, applyXSLTToWeather } from './modules/weather.js';
-import { fetchSarsData, parseCsvData, getStationData } from './modules/sarsData.js';
-import { populateStationSelect } from './modules/select.js';
-import { renderSarsChart } from './modules/chart.js'; 
+import { fetchSarsData, parseCsvData, getDepartmentData } from './modules/sarsData.js';
+import { depSelect } from './modules/select.js';
+import { renderSarsChart } from './modules/chart.js';
 
-
+// Fonction pour afficher les informations météo
 async function displayWeatherInfo() {
     const xmlDoc = await fetchWeatherData();
     if (xmlDoc) {
@@ -15,36 +15,38 @@ async function displayWeatherInfo() {
     }
 }
 
+// Fonction pour afficher la carte avec les stations et les données de qualité de l'air
 async function displayMapWithStationsAndAirQuality(latitude, longitude) {
     const map = initMap(latitude, longitude);
-  
+
     try {
-      // Загружаем данные о станциях
-      const stations = await getStations();
-      addStationsToMap(stations, map);
-  
-      // Загружаем и отображаем данные качества воздуха в блоке
-      const airQualityData = await fetchAirQualityData();
-      displayAirQualityInfo(airQualityData);
-  
-      // Загружаем и отображаем погоду
-      await displayWeatherInfo();
-  
-      // Загружаем данные SARS-CoV-2
-      const sarsCsvData = await fetchSarsData();
-      const sarsData = parseCsvData(sarsCsvData);
-  
-      // Создаём выпадающий список для станций
-      populateStationSelect(sarsData, selectedStation => {
-        if (selectedStation) {
-          const filteredData = getStationData(selectedStation, sarsData);
-          renderSarsChart(filteredData);
-        }
-      });
+        // Charger les données des stations
+        const stations = await getStations();
+        addStationsToMap(stations, map);
+
+        // Charger et afficher les données de qualité de l'air
+        const airQualityData = await fetchAirQualityData();
+        displayAirQualityInfo(airQualityData);
+
+        // Charger et afficher les données météo
+        await displayWeatherInfo();
+
+        // Charger les données SARS-CoV-2
+        const sarsCsvData = await fetchSarsData();
+        const sarsData = parseCsvData(sarsCsvData);
+
+        // Créer une liste déroulante pour les départements
+        depSelect(sarsData, selectedDepartment => {
+          if (selectedDepartment) {
+              const filteredData = getDepartmentData(selectedDepartment, sarsData);
+              renderSarsChart(filteredData);
+          }
+        });
+
     } catch (error) {
-      console.error("Ошибка при загрузке данных:", error);
+        console.error("Erreur lors du chargement des données :", error);
     }
 }
 
-// Инициализация геолокации и отображение данных
+// Initialisation de la géolocalisation et affichage des données
 getGeolocation(displayMapWithStationsAndAirQuality, displayError);

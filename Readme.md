@@ -1,8 +1,8 @@
 LIENS 
 
-WEBETU - https://webetu.iutnc.univ-lorraine.fr/www/prykhodk2u/Interop/Circulation/
+WEBETU - https://webetu.iutnc.univ-lorraine.fr/www/prykhodk2u/Interop/Circulation/circulation.html
 
-WEBETU - https://webetu.iutnc.univ-lorraine.fr/www/prykhodk2u/Interop/Circulation/
+WEBETU - https://webetu.iutnc.univ-lorraine.fr/www/prykhodk2u/Interop/Atmosphere/atmosphere.php
 
 GITHUB - https://github.com/YehorPrykhodko/Circulation
 
